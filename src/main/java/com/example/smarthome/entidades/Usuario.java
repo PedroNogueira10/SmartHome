@@ -7,6 +7,13 @@ public class Usuario {
         this.id = 1L;
     }
 
+    public Usuario(String nome, String CPF, String dataNascimento) {
+        this.id = 1000L;
+        this.nome = nome;
+        this.CPF = CPF;
+        this.dataNascimento = dataNascimento;
+    }
+
     private Long id;
     private String nome;
     private String CPF;
