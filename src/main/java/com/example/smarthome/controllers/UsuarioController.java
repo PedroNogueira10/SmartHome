@@ -10,11 +10,11 @@ public class UsuarioController {
 
     @GetMapping
     public String ConsultaUsuario(){
-        return "Hello World!";
+        return "Consultou o Usuário";
     }
     @GetMapping("/empresa/{empresaId}")
     public String ConsultaUsuarioPorEmpresa(@PathVariable Long empresaId){
-        return "Empresa = " + empresaId;
+        return "Consultou o Usuário pela Empresa <" + empresaId + ">";
     }
 
     @PostMapping
