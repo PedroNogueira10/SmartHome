@@ -1,6 +1,8 @@
 package com.example.smarthome.entidades;
 
 
+import java.time.LocalDateTime;
+
 public class Usuario {
 
     public Usuario(){
@@ -18,6 +20,9 @@ public class Usuario {
     private String nome;
     private String CPF;
     private String dataNascimento;
+    private LocalDateTime dataCadastro;
+    private LocalDateTime dataAtualizacao;
+    private String status;
 
     public Long getId() {
         return this.id;
@@ -50,6 +55,30 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
+
+    public LocalDateTime getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDateTime dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public LocalDateTime getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
 }
