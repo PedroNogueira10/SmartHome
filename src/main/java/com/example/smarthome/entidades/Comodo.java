@@ -2,6 +2,8 @@ package com.example.smarthome.entidades;
 
 public class Comodo {
 
+    public Comodo(){}
+
     public Comodo(String nome, String categoria){
         this.id = 1L;
         this.nome = nome;
@@ -12,12 +14,13 @@ public class Comodo {
     private String nome;
     private String categoria;
 
-
     public Long getId() {
         return this.id;
     }
 
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return this.nome;
