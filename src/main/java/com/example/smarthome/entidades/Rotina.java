@@ -6,36 +6,53 @@ import java.time.LocalTime;
 
 public class Rotina {
 
-    public Rotina(String nome, LocalTime horario) {
+    public Rotina(){}
+
+    public Rotina(String nome, Comodo comodo, String status) {
         this.id = 1L;
         this.nome = nome;
-        this.horario = horario;
+        this.comodo = comodo;
+        this.status = status;
     }
 
     private Long id;
     private String nome;
-    private LocalTime horario;
-
+    private Comodo comodo;
+    private String status;
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
-
-
-    public String getNome(){
-        return this.nome;
+    public void setId(Long id) {
+        this.id = id;
     }
-    public void setNome(String nome){
+
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
 
 
-    public LocalTime getHorario(){
-        return this.horario;
+    public Comodo getComodo() {
+        return comodo;
     }
-    public void setHorario(LocalTime horario){
-        this.horario = horario;
+    public void setComodo(Comodo comodo) {
+        this.comodo = comodo;
     }
+
+
+
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+
 }
