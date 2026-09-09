@@ -1,10 +1,14 @@
 package com.example.smarthome.controllers;
 
+import DTO.AtualizarNomeDispositivoRequest;
 import DTO.DispositivoRequest;
 import DTO.DispositivoResponse;
+import DTO.UsuarioRequest;
 import com.example.smarthome.entidades.Dispositivo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/dispositivos")
@@ -35,6 +39,55 @@ public class DispositivoController{
         "Dispositivo Cadastrado com Sucesso!"));
 
     }
+
+    @PatchMapping("/{id}/nome")
+    public ResponseEntity<DispositivoResponse> atualizarNomeDispositivo(@PathVariable Long id, AtualizarNomeDispositivoRequest dispositivoRequest){
+
+        Dispositivo dispositivoBanco = new Dispositivo();
+
+        if (dispositivoBanco != null){
+            dispositivoBanco.setNome(dispositivoRequest.getNome());
+            dispositivoBanco.setDataAtualizacao(LocalDateTime.now());
+            return ResponseEntity.ok(new DispositivoResponse(dispositivoBanco.getId(), "Nome do Dispositivo atualizado com Sucesso!"));
+        }
+
+        return ResponseEntity.notFound().build();
+
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<DispositivoResponse> AtualizarDispositivo(@PathVariable Long id, @RequestBody DispositivoRequest dispositivoRequest){
+
+        Dispositivo dispositivoBanco = new Dispositivo();
+
+        if (dispositivoBanco != null){
+
+                dispositivoBanco.setNome(dispositivoRequest.getNome());
+                dispositivoBanco.setCategoria(dispositivoRequest.getCategoria());
+                dispositivoBanco.setStatus(dispositivoRequest.getStatus());
+                dispositivoBanco.setConexao(dispositivoRequest.getConexao());
+                dispositivoBanco.setConsumoWatts(dispositivoRequest.getConsumoWatts());
+                dispositivoBanco.setDataAtualizacao(LocalDateTime.now());
+
+            return ResponseEntity.ok(new DispositivoResponse(dispositivoBanco.getId(), "Dispositivo atualizado com Sucesso!"));
+        }
+
+        return ResponseEntity.notFound().build();
+
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<DispositivoResponse> DeletarDispositivo(@PathVariable Long id){
+
+        Dispositivo dispositivoBanco = new Dispositivo();
+            if (dispositivoBanco != null){
+                    dispositivoBanco.setStatusDelete("D");
+                return ResponseEntity.ok().build();
+            }
+
+            return ResponseEntity.notFound().build();
+    }
+
 
 
 }

@@ -1,13 +1,17 @@
 package com.example.smarthome.entidades;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 
+@Entity
 public class Usuario {
 
-    public Usuario(){
-        this.id = 1L;
-    }
+    public Usuario(){}
 
     public Usuario(String nome, String CPF, String dataNascimento) {
         this.id = 1000L;
@@ -16,6 +20,8 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String CPF;

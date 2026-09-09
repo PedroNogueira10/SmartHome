@@ -1,5 +1,7 @@
 package com.example.smarthome.entidades;
 
+import java.time.LocalDateTime;
+
 public class Dispositivo {
 
     public Dispositivo(){
@@ -21,6 +23,8 @@ public class Dispositivo {
     private Boolean status;
     private Boolean conexao;
     private double consumoWatts;
+    private LocalDateTime dataAtualizacao;
+    private String statusDelete;
 
 
 
@@ -74,5 +78,21 @@ public class Dispositivo {
         this.consumoWatts = consumoWatts;
     }
 
+
+
+    public LocalDateTime getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
+    }
+
+    public String getStatusDelete() {
+        return statusDelete;
+    }
+
+    public void setStatusDelete(String statusDelete) {
+        this.statusDelete = statusDelete;
+    }
 }
 
