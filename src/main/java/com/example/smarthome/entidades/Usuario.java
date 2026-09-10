@@ -13,10 +13,10 @@ public class Usuario {
 
     public Usuario(){}
 
-    public Usuario(String nome, String CPF, String dataNascimento) {
+    public Usuario(String nome, String Cpf, String dataNascimento) {
         this.id = 1000L;
         this.nome = nome;
-        this.CPF = CPF;
+        this.cpf = Cpf;
         this.dataNascimento = dataNascimento;
     }
 
@@ -24,11 +24,12 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String CPF;
+    private String cpf;
     private String dataNascimento;
     private LocalDateTime dataCadastro;
     private LocalDateTime dataAtualizacao;
     private String status;
+    private String senha;
 
     public Long getId() {
         return this.id;
@@ -45,11 +46,11 @@ public class Usuario {
 
 
 
-    public String getCPF() {
-        return this.CPF;
+    public String getCpf() {
+        return this.cpf;
     }
-    public void setCPF(String cpf) {
-        this.CPF = cpf;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
 
@@ -87,4 +88,11 @@ public class Usuario {
     }
 
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

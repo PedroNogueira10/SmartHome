@@ -3,8 +3,9 @@ package DTO;
 public class UsuarioRequest {
 
     private String nome;
-    private String CPF;
+    private String cpf;
     private String dataNascimento;
+    private String senha;
 
     public UsuarioRequest(){}
 
@@ -16,12 +17,12 @@ public class UsuarioRequest {
         this.nome = nome;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getDataNascimento() {
@@ -30,5 +31,14 @@ public class UsuarioRequest {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

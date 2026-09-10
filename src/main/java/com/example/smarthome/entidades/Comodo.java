@@ -1,5 +1,7 @@
 package com.example.smarthome.entidades;
 
+import java.time.LocalDateTime;
+
 public class Comodo {
 
     public Comodo(){}
@@ -13,6 +15,7 @@ public class Comodo {
     private Long id;
     private String nome;
     private String categoria;
+    private LocalDateTime dataAtualizacao;
 
     public Long getId() {
         return this.id;
@@ -36,5 +39,13 @@ public class Comodo {
     }
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public LocalDateTime getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
     }
 }

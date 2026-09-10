@@ -6,6 +6,8 @@ import com.example.smarthome.entidades.Comodo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/comodos")
 
@@ -45,5 +47,34 @@ public class ComodoController {
         return ResponseEntity.ok(new ComodoResponse(comodoBanco.getId(), "Cômodo Cadastrado com Sucesso!"));
     }
 
+    @PatchMapping("/{id}/categoria")
+    public ResponseEntity<ComodoResponse> AtualizarCategoriaDoComodo(@PathVariable Long id, @RequestBody ComodoRequest comodoRequest){
 
+        Comodo comodoBanco = new Comodo();
+
+        if (comodoBanco != null){
+                comodoBanco.setCategoria(comodoBanco.getCategoria());
+            return ResponseEntity.ok(new ComodoResponse(comodoBanco.getId(), "Categoria do Cômodo atualizada com Sucesso!"));
+        }
+
+        return ResponseEntity.notFound().build();
+
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ComodoResponse> AtualizarComodo(@PathVariable Long id, ComodoRequest comodoRequest){
+
+        Comodo comodoBanco = new Comodo();
+
+        if (comodoBanco != null) {
+            comodoBanco.setNome(comodoRequest.getNome());
+            comodoBanco.setCategoria(comodoRequest.getCategoria());
+            comodoBanco.setDataAtualizacao(LocalDateTime.now());
+
+            return ResponseEntity.ok(new ComodoResponse(comodoBanco.getId(), "Cômodo atualizado com Sucesso!"));
+        }
+
+        return ResponseEntity.notFound().build();
+
+    }
 }
